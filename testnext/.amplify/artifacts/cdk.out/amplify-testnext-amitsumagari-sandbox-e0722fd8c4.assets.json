@@ -1,0 +1,19 @@
+{
+  "version": "38.0.1",
+  "files": {
+    "d75626308491d32ac91f26c3477d45d87b509f4346912f54a9cf7781bd7f81c8": {
+      "source": {
+        "path": "amplify-testnext-amitsumagari-sandbox-e0722fd8c4.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "d75626308491d32ac91f26c3477d45d87b509f4346912f54a9cf7781bd7f81c8.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
