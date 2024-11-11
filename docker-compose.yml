@@ -1,0 +1,12 @@
+version: "3"
+services:
+  nodeapp:   # Service名
+    container_name: node   # Dockerコンテナ名 
+    build:
+      context: ./testnext
+      dockerfile: Dockerfile
+    volumes:
+      - ./testnext:/app #host:containerでフォルダ同期
+    tty: true   # コンテナ常時起動
+    ports:
+      - "8081:3000" #ポートはよしなに(host:container)
