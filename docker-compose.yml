@@ -1,12 +1,27 @@
+# Docker Composeのバージョンを指定
 version: "3"
+
+# サービス定義
 services:
-  nodeapp:   # Service名
-    container_name: node   # Dockerコンテナ名 
+  # Next.jsアプリケーションのサービス
+  nodeapp:
+    # コンテナ名を指定
+    container_name: nodesecond
+    # 使用するイメージ名
+    image: nodesecond
+    # ビルド設定
     build:
+      # ビルドコンテキストをtestnextディレクトリに設定
       context: ./testnext
+      # 使用するDockerfileを指定
       dockerfile: Dockerfile
-    volumes:
-      - ./testnext:/app #host:containerでフォルダ同期
-    tty: true   # コンテナ常時起動
+    # 環境変数の設定
+    environment:
+      # プロダクションモードを有効化
+      - NODE_ENV=production
+      # すべてのネットワークインターフェースでリッスン
+      - HOSTNAME=0.0.0.0
+    # ポートマッピング
     ports:
-      - "8081:3000" #ポートはよしなに(host:container)
+      # ホストの3002番ポートをコンテナの3000番ポートにマッピング
+      - "3002:3000"
